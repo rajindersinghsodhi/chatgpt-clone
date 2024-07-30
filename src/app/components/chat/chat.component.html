@@ -1,0 +1,9 @@
+<div *ngIf = "isHuman; else elseBlock" class="flex justify-end my-5">
+    <span class="px-5 py-3 rounded-3xl text-white" style="background-color: rgb(52, 50, 50)">Request</span>
+</div>
+<ng-template #elseBlock class="flex justify-start">
+    <div class="flex justify-start gap-5 p-2 text-white">
+        <img src="https://seeklogo.com/images/C/chatgpt-logo-02AFA704B5-seeklogo.com.png" alt="" style="height: 2rem;">
+        <p>response</p>
+    </div>
+</ng-template>
