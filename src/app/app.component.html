@@ -18,8 +18,8 @@
       <img src="https://avatars.githubusercontent.com/u/78411923?v=4" alt="" class="rounded-full h-10">
     </nav>
     <div class=" flex justify-center" style="height: 83%;">
-      <div class="w-6/12 border-black border-2 flex flex-col" style="height: 100%;">
-        <app-chat></app-chat>
+      <div class="w-6/12 flex flex-col" style="max-height: 100%;overflow: auto;" id="chat-container">
+        <app-chat [chat]="chat"></app-chat>
       </div>
     </div>
     <div class="flex justify-center items-start" style="height: 10%;">
@@ -27,9 +27,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6 text-white">
           <path stroke-linecap="round" stroke-linejoin="round" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
         </svg>        
-        <textarea placeholder="Message ChatGPT" name="Search" id="" class="w-10/12 " style="background-color: rgb(52, 50, 50)" ></textarea>
+        <textarea placeholder="Message ChatGPT" name="Search" id="" class="w-10/12 text-white text-md" style="background-color: rgb(52, 50, 50)" [(ngModel)] = "message" ></textarea>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4.5" stroke="currentColor" class="size-6 text-white">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" (click) = "onSubmit($event)" />
         </svg>        
       </div>
     </div>

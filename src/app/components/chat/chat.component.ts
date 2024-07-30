@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,5 +11,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent {
-  isHuman:boolean = false;
+
+  user: string = "";
+
+  @Input() chat: Array<{ message: string, isHuman: boolean }> = []
+
+  ngOnChanges(changes: SimpleChanges) {
+    // You can add additional logic here if needed
+    console.log('Chat updated:', this.chat);
+  }
 }

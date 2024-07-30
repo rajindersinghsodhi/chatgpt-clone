@@ -1,9 +1,20 @@
-<div *ngIf = "isHuman; else elseBlock" class="flex justify-end my-5">
-    <span class="px-5 py-3 rounded-3xl text-white" style="background-color: rgb(52, 50, 50)">Request</span>
+<!-- <div *ngIf = "user === 'human'; else elseBlock" class="flex justify-end my-5">
+    <span class="px-5 py-3 rounded-3xl text-white" style="background-color: rgb(52, 50, 50)">{{message}}</span>
 </div>
 <ng-template #elseBlock class="flex justify-start">
     <div class="flex justify-start gap-5 p-2 text-white">
         <img src="https://seeklogo.com/images/C/chatgpt-logo-02AFA704B5-seeklogo.com.png" alt="" style="height: 2rem;">
-        <p>response</p>
+        <p>{{message}}</p>
     </div>
-</ng-template>
+</ng-template> -->
+
+<div *ngFor="let message of chat" [ngClass]="{'justify-end': message.isHuman, 'justify-start': !message.isHuman}" class="flex my-5">
+    <ng-template [ngIf]="!message.isHuman">
+        <img src="chatgpt-logo.png" alt="" class="mt-2 rounded-full" style="height: 2rem;">
+    </ng-template>
+    <div class="message text-white text-md px-5 py-2 rounded-3xl" [ngStyle]="{'background-color': message.isHuman ? 'rgb(52, 50, 50)' : 'rgb(37, 35, 35)', 'max-width: 80%': message.isHuman}" style="min-height: fit-content;overflow: auto; word-wrap: break-word; overflow-wrap: break-word">
+      <span>{{message.message}}</span>
+    </div>
+  </div>
+
+  
